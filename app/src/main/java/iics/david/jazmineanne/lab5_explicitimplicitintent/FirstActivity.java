@@ -17,13 +17,14 @@ public class FirstActivity extends AppCompatActivity {
         Button act1 = (Button) findViewById(R.id.act1);
         Button map_button1 = (Button) findViewById(R.id.map_button1);
 
-        Uri gmmIntentUri = Uri.parse("geo:14.5796775,120.9818597");
-        final Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-        mapIntent.setPackage("com.google.android.apps.maps");
 
         map_button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Uri gmmIntentUri = Uri.parse("geo:"+ 14.5796775 + "," + 120.9818597);
+                final Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+
                 if (mapIntent.resolveActivity(getPackageManager()) != null){
                     startActivity(mapIntent);
                 }
